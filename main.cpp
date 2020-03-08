@@ -7,7 +7,7 @@ int main() {
 
   char inputOriginal[256];
   
-  std::cout << "変換する文字列を入力してください";
+  std::cout << "変換する文字列を入力してください:";
 	std::cin >> inputOriginal;
 	std::cout << "input " << inputOriginal << std::endl;
 
