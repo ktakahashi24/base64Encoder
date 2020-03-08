@@ -35,16 +35,14 @@ void Base64Encoder::split_six_bits() {
       break;
     }
 
-    idx++;
-
-    if (original[idx] == '\0') {
-      switch ((idx - 1) % 3)
+    if (original[idx + 1] == '\0') {
+      switch (idx % 3)
       {
       case 0:
-        encodeBin[idxEnc++] = (original[idx - 1]<<4 & 0x30);
+        encodeBin[idxEnc++] = (original[idx]<<4 & 0x30);
         break;
       case 1:
-        encodeBin[idxEnc++] = (original[idx - 1]<<2 & 0x3C);
+        encodeBin[idxEnc++] = (original[idx]<<2 & 0x3C);
         break;
       default:
         break;
@@ -52,6 +50,8 @@ void Base64Encoder::split_six_bits() {
 
       break;
     }
+
+    idx++;
   }
 
   encodeBin[idxEnc] = '\0';
